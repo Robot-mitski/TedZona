@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEDZONA</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Gilroy', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .menu::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%; /* 3/4 экрана */
+            height: 2px; /* Толщина линии */
+            background-color: #ffffff; /* Яркокрасный цвет */
+            bottom: 0;
+        }
+
+        .menu button {
+            background-color: transparent;
+            border: none;
+            color: rgb(255, 255, 255);
+            padding: 10px 30px; /* Увеличенный размер кнопок */
+            cursor: pointer;
+            font-size: 18px; /* Увеличенный шрифт кнопок */
+            z-index: 3;
+            margin-left: 10px; /* Отступ между кнопками */
+        }
+
+        .header {
+            height: 100%; /* Красное поле занимает 100% высоты */
+            background-color: #df2f2f;
+            position: relative;
+            overflow: hidden; /* Скрывает часть, выходящую за пределы */
+        }
+
+        .header .half-circle {
+            position: absolute;
+            top: 10%; /* Расстояние от нижней части экрана до полукруга 20% */
+            bottom: 100%;
+            left: 50%; /* Центрируем полукруг */
+            width: 90vw; /* Ширина полукруга */
+            height: 90vw; /* Высота полукруга */
+            background-color: white;
+            border-radius: 50%; /* Полукруг */
+            transform: translateX(-50%); /* Центрируем по горизонтали */
+        }
+
+        .text {
+            position: absolute;
+            top: 25%; /* Отступ от нижней части красной части */
+            left: 50%;
+            transform: translateX(-50%);
+            color: black;
+            text-align: center;
+        }
+
+        .text h1 {
+            margin: 10px 0;
+            font-size: 2.5em;
+        }
+
+        .text p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu">
+            <button class="menu-icon">&#9776;</button> <!-- Иконка меню -->
+            <button onclick="location.href='http://127.0.0.1:5500/pages/networking.html'">Нетворкинг</button>
+            <button onclick="location.href='http://127.0.0.1:5500/pages/events.html'">Мероприятия</button>
+            <button onclick="location.href='http://127.0.0.1:5500/pages/ted_talk.html'">Спикерство</button>
+            <button onclick="location.href='http://127.0.0.1:5500/pages/contacts.html'">Организация</button>
+        </div>
+        <div class="half-circle"></div>
+        <div class="text">
+            <h1>Нетворкинг</h1>
+            <p>Место</p>
+            <p>для обмена</p>
+            <p>знаниями и опытом</p>
+            <p>здесь можно не только найти единомышленников,</p>
+            <p>но и вступить в команду или создать свою</p>
+        </div>
+    </div>
+</body>
+</html>

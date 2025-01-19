@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEDZONA</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Gilroy', sans-serif;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 3;
+        }
+
+        .menu::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%; /* 3/4 экрана */
+            height: 2px; /* Толщина линии */
+            background-color: #df2f2f; /* Яркокрасный цвет */
+            bottom: 0;
+        }
+
+        .menu button {
+            background-color: transparent;
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 10px 30px; /* Увеличенный размер кнопок */
+            cursor: pointer;
+            font-size: 18px; /* Увеличенный шрифт кнопок */
+            z-index: 3;
+            margin-left: 10px; /* Отступ между кнопками */
+        }
+
+        .menu-icon {
+            background: none;
+            border: none;
+            color: rgb(255, 255, 255);
+            font-size: 30px; /* Размер иконки меню */
+            cursor: pointer;
+            margin-right: 20px; /* Отступ справа */
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 80vh; /* Высота экрана */
+            padding: 5vh 6.25vw; /* 1/16 от экрана слева и справа */
+            position: relative;
+            cursor: pointer; /* Курсор для перехода на вторую страницу */
+            z-index: 2; /* Устанавливаем выше, чтобы текст был поверх анимации */
+        }
+
+        .main h1 {
+            font-size: 48px;
+            margin: 0;
+            z-index: 3; /* Устанавливаем выше, чтобы текст был поверх анимации */
+            position: absolute;
+            top: 5%; /* 1/20 ниже верха экрана */
+        }
+
+        .main p {
+            font-size: 24px;
+            margin: 10px 0;
+            z-index: 3; /* Устанавливаем выше, чтобы текст был поверх анимации */
+        }
+
+        .main p.red {
+            color: #df2f2f; /* Красный текст */
+        }
+
+        .start-button {
+            position: absolute;
+            bottom: 5%; /* 1/20 выше конца экрана */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #df2f2f; /* Красный фон */
+            color: white; /* Белый текст */
+            border: none;
+            border-radius: 25px; /* Закругленные края */
+            padding: 15px 30px; /* Отступы */
+            font-size: 18px; /* Размер шрифта */
+            cursor: pointer;
+            z-index: 3; /* Устанавливаем выше, чтобы текст был поверх анимации */
+        }
+
+        .red_lottie {
+            position: absolute;
+            top: -35%;
+            left: 70%;
+            transform: scale(3.5) scaleX(-1);
+            z-index: 1; /* Позиционируем анимацию на задний план */
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <button class="menu-icon">&#9776;</button> <!-- Иконка меню -->
+        <button onclick="location.href='http://127.0.0.1:5500/pages/networking.html'">Нетворкинг</button>
+        <button onclick="location.href='http://127.0.0.1:5500/pages/events.html'">Мероприятия</button>
+        <button onclick="location.href='http://127.0.0.1:5500/pages/ted_talk.html'">Спикерство</button>
+        <button onclick="location.href='http://127.0.0.1:5500/pages/contacts.html'">Организация</button>
+    </div>
+
+    <div class="main">
+        <div class="red_lottie">
+            <canvas id="dotlottie-canvas" style="width: 300px; height: 300px;"></canvas>
+            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+            <dotlottie-player src="https://lottie.host/51a78d9a-d9f2-48a7-a6dd-6057d0f47f43/dF25klVzN7.lottie" background="white" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+        </div>
+        <h1>TEDZONA</h1>
+        <p>Динамичная платформа для нетворкинга и организации мероприятий в формате TED,</p>
+        <p class="red">где каждый может заявить о себе и раскрыть свой потенциал</p>
+        <p>Мы создаем пространство, где креативные умы встречаются, чтобы обмениваться знаниями и вдохновением.</p>
+        <button class="start-button" onclick="location.href='http://127.0.0.1:5500/pages/networking.html'">Начните сегодня</button>
+    </div>
+</body>
+</html>

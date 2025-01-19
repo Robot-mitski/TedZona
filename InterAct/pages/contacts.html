@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEDZONA</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Gilroy', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .menu::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%; /* 3/4 экрана */
+            height: 2px; /* Толщина линии */
+            background-color: #df2f2f; /* Яркокрасный цвет */
+            bottom: 0;
+        }
+
+        .menu button {
+            background-color: transparent;
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 10px 30px; /* Увеличенный размер кнопок */
+            cursor: pointer;
+            font-size: 18px; /* Увеличенный шрифт кнопок */
+            z-index: 3;
+            margin-left: 10px; /* Отступ между кнопками */
+        }
+
+        .main {
+            align-items: center;
+        }
+
+        .rectangle {
+            width: 90%; /* Ширина прямоугольника */
+            height: 80%; /* Высота прямоугольника */
+            position: relative; /* Для позиционирования текста внутри */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Центрирование текста по вертикали */
+            align-items: center; /* Центрирование текста по горизонтали */
+            margin-top: calc(20px + 20px); /* Отступ сверху от меню */
+        }
+
+        .contacts-title {
+            font-size: 24px; /* Размер шрифта для заголовка */
+            color: rgb(0, 0, 0); /* Цвет текста */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+
+        .contacts-title1 {
+            font-size: 24px; /* Размер шрифта для заголовка */
+            color: rgb(255, 255, 255); /* Цвет текста */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column; /* Кнопки располагаются вертикально */
+            width: 80%; /* Ширина кнопок */
+        }
+
+        .button {
+            background-color: transparent;
+            border: 2px solid #df2f2f; /* Черная граница кнопок */
+            color: #df2f2f;
+            padding: 15px; /* Отступ внутри кнопок */
+            cursor: pointer;
+            font-size: 18px; /* Размер шрифта для кнопок */
+            margin-bottom: 10px; /* Отступ между кнопками */
+            border-radius: 15px; /* Закругление углов кнопок */
+        }
+
+        .contacts {
+            display: flex;
+            justify-content: space-between; /* Разделение контактов на две части */
+            width: 80%; /* Ширина блока с контактами */
+            margin-top: 20px; /* Отступ сверху от кнопок */
+        }
+
+        .contact {
+            flex-grow: 1; /* Равномерное распределение пространства между контактами */
+            text-align: center; /* Центрирование текста в контактах */
+        }
+
+        .divider {
+            width: 2px; /* Ширина разделителя */
+            background-color: black; /* Цвет разделителя */
+        }
+
+        .telegram-links {
+            margin-top: 5px; /* Отступ сверху от ссылок на Telegram под каждым контактом */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu">
+            <button class="menu-icon">&#9776;</button> <!-- Иконка меню -->
+            <button onclick="location.href='http://127.0.0.1:5500/pages/networking.html'">Нетворкинг</button>
+            <button onclick="location.href='http://127.0.0.1:5500/pages/events.html'">Мероприятия</button>
+            <button onclick="location.href='http://127.0.0.1:5500/pages/ted_talk.html'">Спикерство</button>
+            <button onclick="location.href='http://127.0.0.1:5500/pages/contacts.html'">Организация</button>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="rectangle">
+            <div class="contacts-title1">собственных мероприятий</div>
+            <div class="contacts-title">Организация</div>
+            <div class="contacts-title">Создание</div>
+            <div class="contacts-title">собственных мероприятий</div>
+            <div class="contacts-title1">собственных мероприятий</div>
+            <div class="contacts-title1">собственных мероприятий</div>
+            
+                <div class="buttons">
+                    <button class="button">Привлечение спикеров ➔</button>
+                    <button class="button">Поиск площадки ➔</button>
+                    <button class="button">Подбор аудитории ➔</button>
+                </div>
+
+                <div class="contacts">
+                    <div class="contact">Автор платформы: София
+                        <div class="telegram-links">
+                            <a href="https://t.me/sophie_arts" target="_blank">Тelegram</a>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="contact">Тех. поддержка: Ника
+                        <div class="telegram-links">
+                            <a href="https://t.me/nika646470" target="_blank">Тelegram</a>
+                        </div>
+                    </div>
+                </div>
+
+            
+        </div>
+    </div>
+</body>
+</html>
