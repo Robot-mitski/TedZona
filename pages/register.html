@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация/Вход</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Gilroy, sans-serif;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: "TEDZONA";
+            position: absolute;
+            font-size: 360px;
+            color: rgba(255, 255, 255, 0.555);
+            z-index: 0;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .frame {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            z-index: 1;
+            position: relative;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .form-group .password-toggle {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group .password-toggle label {
+            margin-bottom: 0;
+        }
+
+        .form-group .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .form-group .forgot-password a {
+            color: red;
+            text-decoration: none;
+        }
+
+        .form-group .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .form-group .button {
+            width: 100%;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .form-group .button:hover {
+            background-color: darkred;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .switch-form a {
+            color: red;
+            text-decoration: none;
+        }
+
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div id="login-form">
+            <h2>Вход</h2>
+            <form>
+                <div class="form-group">
+                    <label for="login-email">Почта</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" required>
+                    <div class="forgot-password">
+                        <a href="#">Забыли пароль?</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="button">Войти</button>
+                </div>
+            </form>
+            <div class="switch-form">
+                <p>Нет аккаунта? <a href="#" onclick="showRegisterForm()">Зарегистрироваться</a></p>
+            </div>
+        </div>
+
+        <div id="register-form" style="display: none;">
+            <h2>Регистрация</h2>
+            <form>
+                <div class="form-group">
+                    <label for="register-name">ФИО</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Почта</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-age">Возраст</label>
+                    <input type="number" id="register-age" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-project">Проект</label>
+                    <input type="text" id="register-project" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-description">Описание проекта</label>
+                    <textarea id="register-description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Пароль</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Подтвердите пароль</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <div class="form-group password-toggle">
+                    <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+                    <label for="show-password">Показать пароль</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="button">Зарегистрироваться</button>
+                </div>
+            </form>
+            <div class="switch-form">
+                <p>Уже есть аккаунт? <a href="#" onclick="showLoginForm()">Войти</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showRegisterForm() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+        }
+
+        function showLoginForm() {
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        }
+
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById('register-password');
+            const confirmPasswordField = document.getElementById('register-confirm-password');
+            const showPasswordCheckbox = document.getElementById('show-password');
+
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = 'text';
+                confirmPasswordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+                confirmPasswordField.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>

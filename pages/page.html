@@ -1,0 +1,64 @@
+<!DOCTYPE html> <html lang="ru"> <head> <meta charset="UTF-8"> <title>Личный профиль</title> <style> body { font-family: Arial, sans-serif; display: flex; padding: 5%; background-color: #f4f4f4; }
+    text
+        .photo-upload {
+            width: 30%;
+            height: 400px;
+            background-color: #e0e0e0;
+            border: 2px dashed #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 5%;
+        }
+    
+        .photo-upload input[type="file"] {
+            display: none;
+        }
+    
+        .photo-upload label {
+            cursor: pointer;
+            color: #666;
+        }
+    
+        .profile-form {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .profile-form input, 
+        .profile-form textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    
+        .profile-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+    
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+    </head> <body> <div class="photo-upload"> <input type="file" id="photo" accept="image/*"> <label for="photo">Загрузить фото</label> </div>
+    <form class="profile-form">
+        <input type="text" placeholder="ФИО" required>
+    
+        <input type="number" placeholder="Возраст" required>
+    
+        <input type="text" placeholder="Название проекта" required>
+    
+        <input type="text" placeholder="Роль в проекте" required>
+    
+        <textarea placeholder="Описание проекта" required></textarea>
+    
+        <button type="submit" class="submit-btn">Отправить</button>
+    </form>
+    </body> </html>
